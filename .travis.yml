@@ -1,0 +1,16 @@
+language: java
+jdk: oraclejdk11
+
+cache:
+  directories:
+    - $HOME/.m2
+
+notifications:
+  email:
+    recipients:
+      - opeleh1@gmail.com
+    on_success: always # default: change
+    on_failure: always # default: always
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
