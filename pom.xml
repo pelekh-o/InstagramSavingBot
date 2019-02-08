@@ -12,6 +12,7 @@
         <json-version>20180813</json-version>
         <junit-version>4.12</junit-version>
         <compilerplugin-version>3.7.0</compilerplugin-version>
+        <telegrambots-version>4.1.2</telegrambots-version>
     </properties>
 
     <build>
@@ -89,6 +90,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>${telegrambots-version}</version>
+        </dependency>
     </dependencies>
 
 

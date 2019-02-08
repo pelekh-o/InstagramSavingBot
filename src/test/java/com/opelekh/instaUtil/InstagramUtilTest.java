@@ -1,6 +1,5 @@
-package instaUtil;
+package com.opelekh.instaUtil;
 
-import com.opelekh.instaUtil.InstagramUtil;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,9 +17,9 @@ public class InstagramUtilTest {
 
     @BeforeClass
     public static void init() {
-        postOnePhoto = "https://www.instagram.com/p/BtluyofHvbi/?__a=1";
-        postTwoPhotos = "https://www.instagram.com/p/BtlilZ7HAwK/?__a=1";
-        postThreePhotos = "https://www.instagram.com/p/BtTtSOvl4RP/?__a=1";
+        postOnePhoto = "https://www.instagram.com/p/BtluyofHvbi/?__a=1?__a=1?__a=1";
+        postTwoPhotos = "https://www.instagram.com/p/BtlilZ7HAwK/?utm_source=ig_share_sheet&igshid=1kjcjdlaa6hi5";
+        postThreePhotos = "https://www.instagram.com/p/BtTtSOvl4RP/?utm_source=ig_web_copy_link";
         postNinePhotos = "https://www.instagram.com/p/BtbHofHBsvf/?__a=1";
 
         zeroLenStr = "";
