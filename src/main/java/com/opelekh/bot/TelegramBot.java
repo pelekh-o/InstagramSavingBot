@@ -19,21 +19,27 @@ public class TelegramBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         long chatId = message.getChatId();
+        String textAnswer = "";
 
-        if (message.hasText()
-                && message.getText().matches("https://www\\.instagram\\.com/p/(.*)")) {
-            InstagramUtil instagramUtil = new InstagramUtil();
-            instagramUtil.getImagesUrls(message.getText());
-            List<String> imgUrlList = instagramUtil.getImagesUrls(message.getText());
-            sendImageFromUrl(chatId, imgUrlList);
+        if (message.hasText()) {
+            String messageText = message.getText();
+            if (messageText.equals("/start")) {
+                textAnswer = "Hi!\nJust sent me a link to the Instagram post";
+                sendMsg(chatId, textAnswer);
+            } else
+                if (message.getText().matches("https://www\\.instagram\\.com/p/(.*)")) {
+                InstagramUtil instagramUtil = new InstagramUtil(message.getText());
+                List<String> imgUrlList = instagramUtil.getImagesUrls();
+                sendImageFromUrl(chatId, imgUrlList, instagramUtil.getHashtags());
+            }
         }
     }
 
-    private void sendImageFromUrl(long chatId, List<String> imgUrlList) {
+    private void sendImageFromUrl(long chatId, List<String> imgUrlList, String hashTags) {
         List<InputMedia> inputMediaList = new ArrayList<>();
 
         for (String s : imgUrlList)
-            inputMediaList.add(new InputMediaPhoto().setMedia(s));
+            inputMediaList.add(new InputMediaPhoto(s, hashTags));
 
         try {
             execute(new SendMediaGroup(chatId, inputMediaList));

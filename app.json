@@ -1,6 +1,6 @@
 {
   "name": "InstagramSavingBot",
-  "description": "ot for Telegram messenger that allows to download photos from Instagram",
+  "description": "Bot for Telegram messenger that allows to download photos from Instagram",
   "repository": "https://github.com/pelekh-o/InstagramSavingBot",
   "keywords": ["bot", "telegram", "instagram"]
 }
